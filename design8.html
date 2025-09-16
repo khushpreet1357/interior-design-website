@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Industrial Loft - CasaVerse Designs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+         :root {
+            --primary-color: #7a4b2b;
+            --secondary-color: #c7922b;
+            --accent-color: #8a6d3b;
+            --dark-color: #3a2c1a;
+            --light-color: #f9f5f0;
+            --text-color: #333;
+        }
+        
+        body {
+            background: var(--light-color);
+            font-family: 'Nunito', 'Segoe UI', sans-serif;
+            margin: 0;
+            color: var(--text-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0 20px;
+        }
+        
+        header h1 {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            color: var(--dark-color);
+        }
+        
+        .hero {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .15);
+            margin-bottom: 50px;
+        }
+        
+        .hero img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .section:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .text {
+            flex: 1;
+        }
+        
+        .text h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+        
+        .text p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--dark-color);
+        }
+        
+        .image {
+            flex: 1;
+        }
+        
+        .image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, .1);
+            transition: transform .3s;
+        }
+        
+        .image img:hover {
+            transform: scale(1.05);
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(122, 75, 43, .3);
+            transition: .3s;
+        }
+        
+        .back-btn:hover {
+            background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+            transform: translateY(-2px);
+        }
+        
+        @media(max-width: 768px) {
+            .section {
+                flex-direction: column !important;
+            }
+            .image img {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Industrial Loft</h1>
+            <p>Where raw textures meet modern sophistication</p>
+        </header>
+
+        <!-- Hero -->
+        <div class="hero">
+            <img src="https://i.pinimg.com/736x/23/d5/9a/23d59a621fb31e7673274c377132d78c.jpg" alt="Industrial Loft">
+        </div>
+
+        <!-- Section 1 -->
+        <div class="section">
+            <div class="image">
+                <img src="https://i.pinimg.com/1200x/ef/9a/3d/ef9a3dd8558c9890bc033a325e9df360.jpg" alt="Exposed brick walls">
+            </div>
+            <div class="text">
+                <h2>Exposed Brick Charm</h2>
+                <p>Classic red brick walls highlight the loft’s industrial roots while adding warmth and character.</p>
+            </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="section">
+            <div class="image">
+                <img src="https://i.pinimg.com/736x/78/ad/b8/78adb833ff499fbb554c7d0fbe06c7c6.jpg" alt="Industrial lighting">
+            </div>
+            <div class="text">
+                <h2>Bold Lighting</h2>
+                <p>Oversized pendant lights and metallic fixtures make a strong design statement in the open space.</p>
+            </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="section">
+            <div class="image">
+                <img src="https://i.pinimg.com/736x/3a/82/8a/3a828a1415039f412b6b29f189c5d39c.jpg" alt="Open layout loft">
+            </div>
+            <div class="text">
+                <h2>Open Concept Living</h2>
+                <p>Spacious layouts with high ceilings and steel details bring together form, function, and style.</p>
+            </div>
+        </div>
+
+        <!-- Back Button -->
+        <a href="design.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Gallery</a>
+    </div>
+</body>
+
+</html>

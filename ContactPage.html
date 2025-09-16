@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Casa Verse | Contact</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+         :root {
+            --primary-color: #7a4b2b;
+            --secondary-color: #c7922b;
+            --accent-color: #8a6d3b;
+            --dark-color: #3a2c1a;
+            --light-color: #f9f5f0;
+            --text-color: #333;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+            --primary: #7a4b2b;
+            /* Added for footer compatibility */
+            --secondary: #c7922b;
+            /* Added for footer compatibility */
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        /* Navbar */
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: var(--light-color);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            z-index: 1001;
+        }
+        
+        nav .logo span {
+            color: var(--secondary-color);
+        }
+        
+        nav .logo i {
+            margin-right: 10px;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 6px;
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+            background: rgba(122, 75, 43, 0.1);
+            box-shadow: 0 2px 8px rgba(122, 75, 43, 0.1);
+        }
+        /* Mobile Menu Button */
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .menu-toggle i {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+        /* Hero Section */
+        
+        .hero {
+            background: linear-gradient(rgba(58, 44, 26, 0.8), rgba(58, 44, 26, 0.8)), url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 80px;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        /* Contact Section */
+        
+        .contact {
+            padding: 60px 8% 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        
+        .contact-info {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        }
+        
+        .contact-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .contact-info h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .info-item i {
+            font-size: 1.3rem;
+            margin-right: 12px;
+            color: var(--secondary-color);
+            margin-top: 3px;
+            min-width: 25px;
+            text-align: center;
+        }
+        
+        .info-item p {
+            margin: 0;
+            font-size: 1.05rem;
+        }
+        
+        .hours {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(199, 146, 43, 0.05);
+            border-left: 4px solid var(--secondary-color);
+            border-radius: 8px;
+        }
+        
+        .hours h3 {
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+        
+        .hours p {
+            margin-bottom: 5px;
+        }
+        /* Form */
+        
+        .contact-form {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: relative;
+        }
+        
+        .contact-form h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .contact-form h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+        
+        .contact-form .form-group {
+            position: relative;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: var(--transition);
+            font-family: 'Raleway', sans-serif;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 8px rgba(199, 146, 43, 0.2);
+        }
+        
+        .contact-form button {
+            background: var(--secondary-color);
+            border: none;
+            padding: 14px 25px;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            color: var(--white);
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .contact-form button:hover {
+            background: #dba12e;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(199, 146, 43, 0.3);
+        }
+        /* Map */
+        
+        .map {
+            margin-top: 40px;
+            grid-column: span 2;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+            position: relative;
+            height: 400px;
+        }
+        
+        .map-frame {
+            width: 100%;
+            height: 100%;
+        }
+        /* Success message */
+        
+        .success-message {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--light-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+            border-radius: 12px;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+            z-index: 10;
+        }
+        
+        .success-message.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .success-message i {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .success-message h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        /* Contact Cards */
+        
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .contact-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .contact-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        /* Form validation */
+        
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .form-group.error .error-message {
+            display: block;
+        }
+        
+        .form-group.error input,
+        .form-group.error textarea {
+            border-color: #e74c3c;
+        }
+        /* Divider */
+        
+        .divider {
+            height: 1px;
+            background: rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+        }
+        /* Glass morphism overlay */
+        
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(58, 44, 26, 0.3);
+            backdrop-filter: blur(3px);
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+        
+        .menu-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        /* Branding Partners Section */
+        
+        .branding-partners {
+            padding: 60px 8%;
+            text-align: center;
+            background: var(--light-color);
+        }
+        
+        .branding-partners h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .branding-partners h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            align-items: center;
+            justify-items: center;
+        }
+        
+        .partner-logo {
+            max-width: 150px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+        
+        .partner-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        /* Footer Styles */
+        
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-column a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        /* Responsive Design */
+        
+        @media(max-width: 900px) {
+            .contact {
+                grid-template-columns: 1fr;
+            }
+            .map {
+                grid-column: span 1;
+            }
+            .contact-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media(max-width: 768px) {
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: rgba(249, 245, 240, 0.85);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                box-shadow: -5px 0 25px rgba(58, 44, 26, 0.2);
+                z-index: 1000;
+                padding: 20% 0;
+                border-left: 1px solid rgba(122, 75, 43, 0.1);
+            }
+            nav ul.active {
+                right: 0;
+            }
+            nav ul li {
+                margin: 15px 0;
+                width: 80%;
+                text-align: center;
+            }
+            nav ul li a {
+                display: block;
+                width: 100%;
+                padding: 12px;
+                background: rgba(255, 255, 255, 0.7);
+                box-shadow: 0 4px 15px rgba(122, 75, 43, 0.1);
+                border-radius: 8px;
+                transition: all 0.4s ease;
+            }
+            nav ul li a:hover {
+                background: rgba(122, 75, 43, 0.1);
+                transform: translateX(-5px);
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .contact {
+                padding: 40px 5%;
+            }
+            .footer-content {
+                flex-direction: column;
+            }
+            .footer-column {
+                margin-bottom: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Glass Morphism Overlay -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo"><i class="fas fa-home"></i>Casa <span>Verse</span></div>
+
+        <ul>
+            <li><a href="Homepage.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="services.html">SERVICES</a></li>
+            <li><a href="offers.html">OFFERS</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+            <li><a href="design.html">DESIGN</a></li>
+            <li><a href="clientshowcase.html">CLIENT SHOW CASE</a></li>
+            <li><a href="review.html">REVIEWS</a></li>
+        </ul>
+
+        <div class="menu-toggle" id="mobileMenu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Connect With Our Design Team</h1>
+        <p>Have questions about our interior design services? Our team is ready to help you create your dream space.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="contact-info">
+            <h2>Contact Information</h2>
+            <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <p><strong>Our Design Studio</strong></p>
+                    <p>Casa Verse, Sector 82, SAS Nagar, Punjab, India</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <p><strong>Email Address</strong></p>
+                    <p>contact@casaverse.com</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-phone"></i>
+                <div>
+                    <p><strong>Phone Number</strong></p>
+                    <p>+91 98765 43210</p>
+                </div>
+            </div>
+
+            <div class="hours">
+                <h3>Visiting Hours</h3>
+                <p><i class="fas fa-clock"></i> Mon - Fri: 10:00 AM – 7:00 PM</p>
+                <p><i class="fas fa-clock"></i> Sat: 11:00 AM – 5:00 PM</p>
+                <p><i class="fas fa-clock"></i> Sunday: Closed</p>
+            </div>
+
+            <div class="contact-cards">
+                <div class="contact-card">
+                    <i class="fas fa-comments"></i>
+                    <h4>Live Chat Support</h4>
+                    <p>Chat with our design experts in real-time</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-calendar-check"></i>
+                    <h4>Book Appointment</h4>
+                    <p>Schedule a free consultation with our team</p>
+                </div>
+            </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+            <h2>Send Us a Message</h2>
+            <div class="form-group">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <div class="error-message">Please enter your name</div>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" placeholder="Your Email" required>
+                <div class="error-message">Please enter a valid email</div>
+            </div>
+            <div class="form-group">
+                <input type="text" id="subject" placeholder="Subject" required>
+                <div class="error-message">Please enter a subject</div>
+            </div>
+            <div class="form-group">
+                <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                <div class="error-message">Please enter your message</div>
+            </div>
+            <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+
+            <div class="success-message" id="successMessage">
+                <i class="fas fa-check-circle"></i>
+                <h3>Message Sent Successfully!</h3>
+                <p>Thank you for contacting us. Our team will get back to you within 24 hours.</p>
+            </div>
+        </form>
+
+        <!-- Map -->
+        <div class="map">
+            <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3430.518001669565!2d76.71712677636067!3d30.70487458615643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fefa3a7a5e6a1%3A0x3e0d7d8a4c1e3b2e!2sSector%2082%2C%20Sahibzada%20Ajit%20Singh%20Nagar%2C%20Punjab%20140308!5e0!3m2!1sen!2sin!4v1692296149502!5m2!1sen!2sin"
+                style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Branding Partners Section
+    <section class="branding-partners">
+        <h2>Our Branding Partners</h2>
+        <div class="partners-grid">
+            <div class="partner-logo">
+                <img src="https://via.placeholder.com/150x80/7a4b2b/ffffff?text=DesignCo" alt="DesignCo">
+            </div>
+            <div class="partner-logo">
+                <img src="https://via.placeholder.com/150x80/7a4b2b/ffffff?text=HomeStyle" alt="HomeStyle">
+            </div>
+            <div class="partner-logo">
+                <img src="https://via.placeholder.com/150x80/7a4b2b/ffffff?text=EliteLiving" alt="EliteLiving">
+            </div>
+            <div class="partner-logo">
+                <img src="https://via.placeholder.com/150x80/7a4b2b/ffffff?text=DecorPlus" alt="DecorPlus">
+            </div>
+            <div class="partner-logo">
+                <img src="https://via.placeholder.com/150x80/7a4b2b/ffffff?text=SpaceCraft" alt="SpaceCraft">
+            </div>
+            <div class="partner-logo">
+                <img src="https://via.placeholder.com/150x80/7a4b2b/ffffff?text=Artisan" alt="Artisan">
+            </div>
+        </div>
+    </section> -->
+
+
+
+    <div class="divider"></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CasaVerse</h3>
+                    <p>Transforming spaces into personalized sanctuaries that reflect your unique style.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="Homepage.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="offers.html">Offers</a></li>
+                        <li><a href="contact">Contact</a></li>
+                        <li><a href="design.html">DESIGN</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Casa Verse, Sec-82, SAS Nagar, Punjab</li>
+                        <li><i class="fas fa-phone"></i> (+91) 98765*</li>
+                        <li><i class="fas fa-envelope"></i> contact@casaverse.com</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-houzz"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 CasaVerse Interior Design. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            // Reset error states
+            document.querySelectorAll('.form-group').forEach(group => {
+                group.classList.remove('error');
+            });
+
+            let isValid = true;
+
+            // Validate form
+            if (!name) {
+                document.getElementById('name').parentElement.classList.add('error');
+                isValid = false;
+            }
+
+            if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+                document.getElementById('email').parentElement.classList.add('error');
+                isValid = false;
+            }
+
+            if (!subject) {
+                document.getElementById('subject').parentElement.classList.add('error');
+                isValid = false;
+            }
+
+            if (!message) {
+                document.getElementById('message').parentElement.classList.add('error');
+                isValid = false;
+            }
+
+            if (!isValid) return;
+
+            // Show success message
+            document.getElementById('successMessage').classList.add('active');
+
+            // Reset form after 4 seconds
+            setTimeout(() => {
+                document.getElementById('contactForm').reset();
+                document.getElementById('successMessage').classList.remove('active');
+            }, 4000);
+        });
+
+        // Mobile Menu Toggle with Glass Morphism
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navMenu = document.querySelector('nav ul');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+
+            // Change menu icon
+            if (navMenu.classList.contains('active')) {
+                mobileMenu.innerHTML = '<i class="fas fa-times"></i>';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            } else {
+                mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = 'auto'; // Enable scrolling
+            }
+        });
+
+        // Close menu when clicking on overlay
+        menuOverlay.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+            document.body.style.overflow = 'auto';
+        });
+    </script>
+</body>
+
+</html>

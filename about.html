@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>About - Casaverse</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, #f4deb3 0%, #e5ba7d 100%);
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        .corner-bottom-right {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: transparent;
+            border: 2px solid #cd853f;
+            border-radius: 50%;
+            z-index: 1;
+            bottom: 20px;
+            right: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        
+        .content-container {
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+            color: #8b4513;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+        
+        .section.visible {
+            opacity: 1;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            color: #8b4513;
+            transition: color 1s ease;
+        }
+        
+        h2.color-change {
+            color: #cd853f;
+        }
+        
+        h2 span {
+            opacity: 0;
+            display: inline-block;
+            transition: opacity 0.1s ease, transform 0.1s ease;
+        }
+        
+        h2.about-us span,
+        h2.vision span {
+            transform: translateX(-20px);
+            /* Left-to-right */
+        }
+        
+        h2.team span {
+            transform: translateX(20px);
+            /* Right-to-left */
+        }
+        
+        h2 span.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .shadow-box {
+            background-color: #fff;
+            border: 2px solid #cd853f;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(139, 69, 19, 0.3);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .team-member {
+            background-color: #fff;
+            border: 2px solid #cd853f;
+            border-radius: 5px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(139, 69, 19, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 8px rgba(139, 69, 19, 0.3);
+        }
+        
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            display: block;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border: 2px solid #cd853f;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(139, 69, 19, 0.2);
+            margin-bottom: 20px;
+        }
+        
+        .video-container video {
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.02);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .home-link {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 1rem;
+            color: #8b4513;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid #cd853f;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+            opacity: 1;
+        }
+        
+        .home-link.hidden {
+            opacity: 0;
+            pointer-events: none;
+            /* Prevent interaction when invisible */
+        }
+        
+        .home-link:hover {
+            background-color: #f5e6cc;
+            transform: scale(1.03);
+        }
+        /* Responsive Design */
+        
+        @media screen and (max-width: 1023px) {
+            .container {
+                padding: 30px 15px;
+            }
+            .content-container {
+                width: 90%;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            .team-member img {
+                width: 120px;
+                height: 120px;
+            }
+            .cta-btn {
+                font-size: 1rem;
+                padding: 12px 25px;
+            }
+            .home-link {
+                font-size: 0.9rem;
+                padding: 8px 15px;
+            }
+            .corner-bottom-right {
+                width: 15px;
+                height: 15px;
+            }
+        }
+        
+        @media screen and (max-width: 767px) {
+            .container {
+                padding: 20px 10px;
+            }
+            .content-container {
+                width: 95%;
+            }
+            h2 {
+                font-size: 1.8rem;
+            }
+            p {
+                font-size: 0.9rem;
+            }
+            .team-member img {
+                width: 100px;
+                height: 100px;
+            }
+            .cta-btn {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+            .home-link {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+            .corner-bottom-right {
+                width: 10px;
+                height: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="corner-bottom-right"></div>
+    <a href="Homepage.html" class="home-link">Back to Home</a>
+    <div class="container">
+        <div class="content-container">
+            <!-- About Us Section -->
+            <div class="section about-us">
+                <h2 class="about-us">
+                    <span>A</span><span>b</span><span>o</span><span>u</span><span>t</span><span> </span>
+                    <span>U</span><span>s</span>
+                </h2>
+                <p class="shadow-box">
+                    Welcome to Casaverse, a platform where creativity and community thrive. Launched in 2025, our mission is to empower artists, gamers, and creators to connect, share, and inspire. We provide a vibrant digital space to bring your ideas to life and build
+                    meaningful connections worldwide.
+                </p>
+            </div>
+
+            <!-- Team Section -->
+            <div class="section team">
+                <h2 class="team">
+                    <span>O</span><span>u</span><span>r</span><span> </span>
+                    <span>T</span><span>e</span><span>a</span><span>m</span>
+                </h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="ceo.jpg" alt="Team Member 1">
+                        <h3>Elena Moretti</h3>
+                        <p>Founder & CEO</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="creative.jpg" alt="Team Member 2">
+                        <h3>Sofia Alvarez</h3>
+                        <p>Creative Director</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="leaddevelop.jpg" alt="Team Member 3">
+                        <h3>Anya Petrova</h3>
+                        <p>Lead Developer</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="community.jpg" alt="Team Member 4">
+                        <h3>Isabella Rossi</h3>
+                        <p>Community Manager</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Showcase Section -->
+            <div class="section video-showcase">
+                <h2 class="vision">
+                    <span>O</span><span>u</span><span>r</span><span> </span>
+                    <span>V</span><span>i</span><span>s</span><span>i</span><span>o</span><span>n</span>
+                </h2>
+                <div class="video-container">
+                    <video autoplay muted loop>
+                        <source src="aboutvideo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <p>Discover the heart of Casaverse in our vision video.</p>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <script>
+        function animateHeading(heading, delayPerChar, isReverse) {
+            const spans = heading.querySelectorAll('span');
+            const totalDelay = delayPerChar * spans.length;
+
+            spans.forEach((span, index) => {
+                const delay = isReverse ? (spans.length - 1 - index) * delayPerChar : index * delayPerChar;
+                setTimeout(() => {
+                    span.classList.add('visible');
+                }, delay);
+            });
+
+
+            setTimeout(() => {
+                heading.classList.add('color-change');
+            }, totalDelay + 1000);
+        }
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const aboutUsHeading = document.querySelector('h2.about-us');
+            const teamHeading = document.querySelector('h2.team');
+            const visionHeading = document.querySelector('h2.vision');
+
+            animateHeading(aboutUsHeading, 150, false);
+            animateHeading(teamHeading, 150, true);
+            animateHeading(visionHeading, 150, false);
+        });
+
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        sections.forEach(section => observer.observe(section));
+
+
+        const cornerBottomRight = document.querySelector('.corner-bottom-right');
+        const homeLink = document.querySelector('.home-link');
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const maxScroll = document.body.scrollHeight - window.innerHeight;
+            const moveFactor = 0.5;
+
+
+            cornerBottomRight.style.bottom = `$ {
+                20 - scrollY * moveFactor
+            }
+            px`;
+
+            if (scrollY > 50) {
+                homeLink.classList.add('hidden');
+            } else {
+                homeLink.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+
+</html>

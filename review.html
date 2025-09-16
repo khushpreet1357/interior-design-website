@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Haven - Reviews & Ratings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f9f5f0 0%, #f0e6d8 100%);
+            color: #5c4b37;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: #7A4B2B;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #C7922B;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+        
+        .tagline {
+            text-align: center;
+            color: #f8f3e3;
+            margin-top: 5px;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%238B6B4D" opacity="0.1" width="100" height="100"/><path fill="%238B6B4D" opacity="0.2" d="M0 0h100v100H0zM20 20h60v60H20z"/></svg>');
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            color: #7A4B2B;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #c7922b;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            background: #7A4B2B;
+            color: #c7922b;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .stat-item .number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background: #D8C7A9;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #5c4b37;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #8B6B4D;
+            color: #F3E5AB;
+        }
+        
+        .reviews-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .review-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-15px);
+        }
+        
+        .review-header {
+            background: #7A4B2B;
+            color: #C7922B;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .reviewer {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #D8C7A9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #5c4b37;
+        }
+        
+        .reviewer-info h3 {
+            margin-bottom: 5px;
+        }
+        
+        .rating {
+            color: #FFD700;
+            font-size: 1.2rem;
+        }
+        
+        .review-content {
+            padding: 20px;
+        }
+        
+        .review-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #7A4B2B;
+        }
+        
+        .review-text {
+            color: #6d5d48;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .review-date {
+            color: #8B6B4D;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+        
+        footer {
+            background-color: #7A4B2B;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column:first-child {
+            margin-right: 60px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .footer-column a:hover {
+            color: #C7922B;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .reviews-container {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .stats {
+                gap: 15px;
+            }
+            .stat-item {
+                min-width: 150px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">CASAVERSE</div>
+            <div class="tagline">Where Elegance Meets Comfort</div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="hero">
+            <h1>Client Reviews & Ratings</h1>
+            <p>Discover what our clients have to say about our interior design services. We take pride in transforming spaces and creating homes that reflect your personality and style.</p>
+        </div>
+        <div class="stats">
+            <div class="stat-item">
+                <span class="number">4.5</span>
+                <span>Average Rating</span>
+            </div>
+            <div class="stat-item">
+                <span class="number">327</span>
+                <span>Total Reviews</span>
+            </div>
+            <div class="stat-item">
+                <span class="number">98%</span>
+                <span>Would Recommend</span>
+            </div>
+        </div>
+        <div class="reviews-container">
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer">
+                        <div class="avatar">S</div>
+                        <div class="reviewer-info">
+                            <h3>Sarah Johnson</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-content">
+                    <h3 class="review-title">Transformed my living space completely!</h3>
+                    <p class="review-text">The team at Design Haven took my vague ideas and turned them into a reality that exceeded my expectations. Their attention to detail and knowledge of materials is impressive.</p>
+                    <div class="review-date">Posted on: March 15, 2023</div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer">
+                        <div class="avatar">M</div>
+                        <div class="reviewer-info">
+                            <h3>Michael Torres</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-content">
+                    <h3 class="review-title">Office redesign that inspires creativity</h3>
+                    <p class="review-text">Our new office space has received countless compliments. The designers understood our brand identity and created a space that is both functional and beautiful.</p>
+                    <div class="review-date">Posted on: February 28, 2023</div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer">
+                        <div class="avatar">J</div>
+                        <div class="reviewer-info">
+                            <h3>Jennifer Lee</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-content">
+                    <h3 class="review-title">Kitchen renovation beyond expectations</h3>
+                    <p class="review-text">I'm in love with my new kitchen! The designers at Casaverse optimized the space perfectly and selected materials that are both durable and beautiful.</p>
+                    <div class="review-date">Posted on: January 10, 2023</div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer">
+                        <div class="avatar">R</div>
+                        <div class="reviewer-info">
+                            <h3>Robert Chen</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-content">
+                    <h3 class="review-title">Great design, slightly over budget</h3>
+                    <p class="review-text">The design work was excellent and the team was professional. We did go slightly over budget, but the end result was worth the extra expense.</p>
+                    <div class="review-date">Posted on: December 5, 2022</div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer">
+                        <div class="avatar">A</div>
+                        <div class="reviewer-info">
+                            <h3>Amanda Wilson</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-content">
+                    <h3 class="review-title">Bedroom sanctuary achieved</h3>
+                    <p class="review-text">I wanted a bedroom that felt like a luxury retreat, and Casaverse delivered exactly that. The color scheme is calming and the furniture choices are perfect.</p>
+                    <div class="review-date">Posted on: November 22, 2022</div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer">
+                        <div class="avatar">T</div>
+                        <div class="reviewer-info">
+                            <h3>Thomas Wright</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-content">
+                    <h3 class="review-title">Restaurant interior that draws crowds</h3>
+                    <p class="review-text">Since the redesign, we've noticed customers staying longer and compliments on the atmosphere have increased significantly. Great investment!</p>
+                    <div class="review-date">Posted on: October 30, 2022</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CasaVerse</h3>
+                    <p>Transforming spaces into personalized sanctuaries that reflect your unique style.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="HomePage.html">HOME</a></li>
+                        <li><a href="about.html">ABOUT</a></li>
+                        <li><a href="services.html">SERVICES</a></li>
+                        <li><a href="offers.html">OFFERS</a></li>
+                        <li><a href="ContactPage.html">CONTACT</a></li>
+
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Casa Verse, Sec-82, SAS Nagar, Punjab</li>
+                        <li><i class="fas fa-phone"></i> (+91) 98765*</li>
+                        <li><i class="fas fa-envelope"></i> contact@casaverse.com</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-houzz"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 CasaVerse Interior Design. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const paginationButtons = document.querySelectorAll('.pagination-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

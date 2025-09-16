@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chic Workspace - CasaVerse Designs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+         :root {
+            --primary-color: #7a4b2b;
+            --secondary-color: #c7922b;
+            --accent-color: #8a6d3b;
+            --dark-color: #3a2c1a;
+            --light-color: #f9f5f0;
+            --text-color: #333;
+        }
+        
+        body {
+            background: var(--light-color);
+            font-family: 'Nunito', 'Segoe UI', sans-serif;
+            margin: 0;
+            color: var(--text-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0 20px;
+        }
+        
+        header h1 {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            color: var(--dark-color);
+        }
+        
+        .hero {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .15);
+            margin-bottom: 50px;
+        }
+        
+        .hero img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .section:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .text {
+            flex: 1;
+        }
+        
+        .text h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+        
+        .text p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--dark-color);
+        }
+        
+        .image {
+            flex: 1;
+        }
+        
+        .image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, .1);
+            transition: transform .3s;
+        }
+        
+        .image img:hover {
+            transform: scale(1.05);
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(122, 75, 43, .3);
+            transition: .3s;
+        }
+        
+        .back-btn:hover {
+            background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+            transform: translateY(-2px);
+        }
+        
+        @media(max-width: 768px) {
+            .section {
+                flex-direction: column !important;
+            }
+            .image img {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Modern Workspace</h1>
+            <p>A productive corner designed with elegance</p>
+        </header>
+
+        <!-- Hero -->
+        <div class="hero">
+            <img src="https://i.pinimg.com/736x/ef/d1/63/efd1636f29fe4c7e1b76d329a994872e.jpg" alt="Modern Workspace">
+        </div>
+
+        <!-- Section 1 -->
+        <div class="section">
+            <div class="image">
+                <img src="https://i.pinimg.com/1200x/0a/54/4e/0a544e5b1a27c3a7caa9a5a0a951dac6.jpg" alt="Workspace desk">
+            </div>
+            <div class="text">
+                <h2>Modern Desk Setup</h2>
+                <p>A sleek desk with clean lines provides the perfect surface for focused work and creativity.</p>
+            </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="section">
+            <div class="image">
+                <img src="https://i.pinimg.com/1200x/c2/a4/16/c2a416cfdcaa2ea7b5497804f91bf9b5.jpg" alt="Workspace lighting">
+            </div>
+            <div class="text">
+                <h2>Natural Lighting</h2>
+                <p>Large windows and ambient lights keep the workspace bright and inspiring throughout the day.</p>
+            </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="section">
+            <div class="image">
+                <img src="https://i.pinimg.com/1200x/bb/35/83/bb3583b2409b6e83d80ae0077595b192.jpg" alt="Workspace decor">
+            </div>
+            <div class="text">
+                <h2>Minimal Decor</h2>
+                <p>Thoughtfully chosen décor elements add personality without overwhelming the workspace.</p>
+            </div>
+        </div>
+
+        <!-- Back Button -->
+        <a href="design.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Gallery</a>
+    </div>
+</body>
+
+</html>
